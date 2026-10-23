@@ -180,3 +180,60 @@ body.is-thumb .canvas { box-shadow: none; }
 @media (max-width: 640px) {
   .toolbar__title, .toolbar__btn[data-action="fullscreen"] { display: none; }
 }
+
+/* ---------- ダウンロードメニュー ---------- */
+
+.download { position: relative; }
+.download > summary { list-style: none; }
+.download > summary::-webkit-details-marker { display: none; }
+.download__menu {
+  position: absolute;
+  right: 0;
+  bottom: 48px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  background: rgba(42, 24, 16, 0.98);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+}
+.download__menu a {
+  padding: 10px 12px;
+  border-radius: 10px;
+  color: var(--bar-ink);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+.download__menu a:hover { background: rgba(255, 247, 234, 0.08); }
+.download__menu small { display: block; font-weight: 400; color: var(--bar-muted); }
+
+/* ---------- 印刷・PDF（?print） ---------- */
+
+@page { size: 1920px 1080px; margin: 0; }
+
+body.is-print { overflow: visible; height: auto; background: #ffffff; }
+body.is-print .toolbar,
+body.is-print .notes,
+body.is-print .overview { display: none !important; }
+body.is-print .stage { position: static; overflow: visible; }
+body.is-print .canvas {
+  position: static;
+  transform: none;
+  width: 1920px;
+  height: auto;
+  box-shadow: none;
+}
+body.is-print .slide {
+  display: block;
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  break-after: page;
+  page-break-after: always;
+}
+body.is-print .slide:last-child { break-after: auto; page-break-after: auto; }

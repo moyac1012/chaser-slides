@@ -205,8 +205,22 @@
 
   // ---------- 起動 ----------
 
+  function hasQueryFlag(name) {
+    return new URLSearchParams(location.search).has(name);
+  }
+
   function isThumbMode() {
-    return new URLSearchParams(location.search).has("thumb");
+    return hasQueryFlag("thumb");
+  }
+
+  function isPrintMode() {
+    return hasQueryFlag("print");
+  }
+
+  // 全スライドを縦に並べ、1枚＝1ページで印刷・PDF化できる形にする。
+  function startPrintMode() {
+    document.body.classList.add("is-print");
+    canvas.style.transform = "none";
   }
 
   function startThumbMode() {
@@ -226,6 +240,7 @@
     goTo(indexFromHash());
   }
 
-  if (isThumbMode()) startThumbMode();
+  if (isPrintMode()) startPrintMode();
+  else if (isThumbMode()) startThumbMode();
   else startViewer();
 })();

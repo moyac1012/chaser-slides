@@ -1,0 +1,56 @@
+# スライドや見た目が変わったら、PDF を作り直して pdf/ にコミットする。
+# pdf/ だけの変更ではこのワークフローは動かないので、ループしない。
+# コミットされた PDF は、Cloudflare の次のビルドでサイトに載る。
+name: Build PDFs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/**"
+      - "site/**"
+      - "scripts/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-pdfs
+  cancel-in-progress: true
+
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Playwright (Chromium)
+        run: |
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+
+      - name: Install Japanese fonts (fallback)
+        run: sudo apt-get install -y fonts-noto-cjk
+
+      - name: Build site
+        run: node scripts/build.mjs
+
+      - name: Render PDFs
+        run: node scripts/pdf.mjs
+
+      - name: Commit PDFs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add pdf
+          if git diff --cached --quiet; then
+            echo "PDF に変更なし"
+          else
+            git commit -m "PDF を更新"
+            git push
+          fi

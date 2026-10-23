@@ -57,6 +57,24 @@ scripts/build.mjs       content/ から dist/ を生成
 
 5. `npm run build` で確認し、コミットして push する。
 
+## ダウンロード（HTML / PDF）
+
+一覧・ロードマップ・ビューアから、各デッキを次の形でダウンロードできます。
+
+| 形式 | 中身 | 作られ方 |
+| --- | --- | --- |
+| HTML（`chaser-<slug>.html`） | 画像・CSS・JS を埋め込んだ1ファイル。ブラウザで開けばそのまま発表できる | `npm run build` のたびに自動生成 |
+| PDF（`chaser-<slug>.pdf`） | 1枚＝1ページ（1920×1080） | `pdf/<slug>.pdf` をサイトにコピー |
+
+PDF は GitHub Actions（`.github/workflows/pdf.yml`）が、`content/`・`site/`・`scripts/` の変更を push したときに作り直して `pdf/` にコミットします。手元で作る場合は次のとおりです。
+
+```sh
+npm install --no-save playwright && npx playwright install chromium
+npm run build && npm run pdf
+```
+
+ビューアの URL に `?print` を付けると全スライドが縦に並ぶ印刷用ページになり、ブラウザの印刷から PDF 保存もできます。
+
 ## ビューアの操作
 
 | 操作 | キー |

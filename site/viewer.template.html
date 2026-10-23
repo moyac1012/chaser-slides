@@ -7,8 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 {{FONT_LINKS}}
-<link rel="stylesheet" href="../../css/slide-format.css">
-<link rel="stylesheet" href="../../css/viewer.css">
+{{STYLES}}
 </head>
 <body class="viewer">
 <main class="stage" id="stage" aria-label="{{TITLE}}">
@@ -25,8 +24,7 @@
 </aside>
 
 <nav class="toolbar" id="toolbar" aria-label="スライド操作">
-  <a class="toolbar__btn toolbar__home" href="../../">← 一覧</a>
-  <a class="toolbar__btn toolbar__home" href="../../roadmap/">ロードマップ</a>
+  {{SITE_LINKS}}
   <span class="toolbar__title"><span class="toolbar__step">{{STEP}}</span>{{TITLE}}</span>
   <span class="toolbar__spacer"></span>
   {{PREV_LINK}}
@@ -37,8 +35,9 @@
   <button class="toolbar__btn" type="button" data-action="overview" title="一覧表示（O）">一覧</button>
   <button class="toolbar__btn" type="button" data-action="notes" title="ノート（N）">ノート</button>
   <button class="toolbar__btn" type="button" data-action="fullscreen" title="全画面（F）">全画面</button>
+  {{DOWNLOADS}}
 </nav>
 
-<script src="../../js/viewer.js"></script>
+{{SCRIPTS}}
 </body>
 </html>
