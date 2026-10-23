@@ -7,7 +7,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "preview": "npm run build && npx --yes serve dist",
-    "deploy": "npm run build && npx --yes wrangler@3 pages deploy dist --project-name chaser-slides"
+    "deploy": "npm run build && npx --yes wrangler deploy"
   },
   "engines": {
     "node": ">=18"

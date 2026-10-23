@@ -1,3 +1,6 @@
+# Cloudflare Workers（静的アセット）として dist/ を配信する
 name = "chaser-slides"
-pages_build_output_dir = "dist"
 compatibility_date = "2026-10-01"
+
+[assets]
+directory = "./dist"

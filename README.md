@@ -8,7 +8,7 @@ CHaser（U-16 プログラミングコンテスト）の教材スライドを一
 ```sh
 npm run build     # dist/ に書き出し
 npm run preview   # ビルドしてローカルで確認
-npm run deploy    # ビルドして Cloudflare Pages にデプロイ
+npm run deploy    # ビルドして Cloudflare Workers にデプロイ
 ```
 
 ## ディレクトリ構成
@@ -63,11 +63,11 @@ scripts/build.mjs       content/ から dist/ を生成
 
 URL の末尾の `#3` で3枚目を直接開けます。
 
-## デプロイ（Cloudflare Pages）
+## デプロイ（Cloudflare Workers の静的アセット）
 
-- **手動**：`npx wrangler login` のあと `npm run deploy`。
-- **GitHub 連携**：Cloudflare ダッシュボードの Workers & Pages → Create → Pages → Connect to Git でこのリポジトリを選び、次のように設定する。
+`wrangler.toml` の `[assets] directory = "./dist"` で、ビルド結果をそのまま配信します。
+
+- **GitHub 連携（設定済み）**：Cloudflare の Workers Builds が push のたびに次を実行します。
   - Build command: `npm run build`
-  - Build output directory: `dist`
-
-  以後は push するたびに自動でデプロイされます。
+  - Deploy command: `npx wrangler deploy`
+- **手動**：`npx wrangler login` のあと `npm run deploy`。
