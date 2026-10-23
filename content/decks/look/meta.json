@@ -1,0 +1,10 @@
+{
+  "title": "見る（look）",
+  "description": "指定した方向の3×3＝9マスを調べる look ブロック。search との違いと使い分け。",
+  "goal": "近くの3×3を調べて、search と使い分けられる",
+  "category": "ブロック解説",
+  "tags": ["look", "見る", "広く", "search"],
+  "date": "2026-10-23",
+  "chapter": "see",
+  "order": 20
+}

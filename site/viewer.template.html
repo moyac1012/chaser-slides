@@ -26,11 +26,14 @@
 
 <nav class="toolbar" id="toolbar" aria-label="スライド操作">
   <a class="toolbar__btn toolbar__home" href="../../">← 一覧</a>
-  <span class="toolbar__title">{{TITLE}}</span>
+  <a class="toolbar__btn toolbar__home" href="../../roadmap/">ロードマップ</a>
+  <span class="toolbar__title"><span class="toolbar__step">{{STEP}}</span>{{TITLE}}</span>
   <span class="toolbar__spacer"></span>
+  {{PREV_LINK}}
   <button class="toolbar__btn" type="button" data-action="prev" aria-label="前のスライド">‹</button>
   <span class="toolbar__counter" id="counter">1 / 1</span>
   <button class="toolbar__btn" type="button" data-action="next" aria-label="次のスライド">›</button>
+  {{NEXT_LINK}}
   <button class="toolbar__btn" type="button" data-action="overview" title="一覧表示（O）">一覧</button>
   <button class="toolbar__btn" type="button" data-action="notes" title="ノート（N）">ノート</button>
   <button class="toolbar__btn" type="button" data-action="fullscreen" title="全画面（F）">全画面</button>

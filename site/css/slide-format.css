@@ -42,6 +42,16 @@
 .slide > section img { display: block; flex: none; }
 .slide > section aside { display: none; }
 
+/* 図形（<x-shape kind="…">）：background がそのまま塗りになる */
+.slide > section x-shape { display: block; flex: none; }
+.slide > section x-shape[kind="ellipse"] { border-radius: 50%; }
+.slide > section x-shape[kind="rounded"] { border-radius: 16px; }
+.slide > section x-shape[kind="diamond"] { clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.slide > section x-shape[kind="arrow-right"] { clip-path: polygon(0 30%, 60% 30%, 60% 0, 100% 50%, 60% 100%, 60% 70%, 0 70%); }
+.slide > section x-shape[kind="arrow-left"] { clip-path: polygon(100% 30%, 40% 30%, 40% 0, 0 50%, 40% 100%, 40% 70%, 100% 70%); }
+.slide > section x-shape[kind="arrow-down"] { clip-path: polygon(30% 0, 70% 0, 70% 60%, 100% 60%, 50% 100%, 0 60%, 30% 60%); }
+.slide > section x-shape[kind="arrow-up"] { clip-path: polygon(30% 100%, 70% 100%, 70% 40%, 100% 40%, 50% 0, 0 40%, 30% 40%); }
+
 /* 流し込みの矢印（<x-connector style="width:…">） */
 .slide > section x-connector {
   display: block;

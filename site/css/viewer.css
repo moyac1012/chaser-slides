@@ -159,6 +159,24 @@ body.is-thumb .overview { display: none !important; }
 body.is-thumb .stage { inset: 0; }
 body.is-thumb .canvas { box-shadow: none; }
 
+.toolbar__step {
+  font-family: Oxanium, "Space Grotesk", sans-serif;
+  letter-spacing: 0.12em;
+  color: #7fe3d3;
+  margin-right: 10px;
+}
+
+.toolbar__neighbor {
+  max-width: 260px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #ead7bb;
+}
+
+@media (max-width: 1100px) {
+  .toolbar__neighbor { display: none; }
+}
+
 @media (max-width: 640px) {
   .toolbar__title, .toolbar__btn[data-action="fullscreen"] { display: none; }
 }

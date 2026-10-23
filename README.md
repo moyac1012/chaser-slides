@@ -14,6 +14,7 @@ npm run deploy    # ビルドして Cloudflare Workers にデプロイ
 ## ディレクトリ構成
 
 ```
+content/roadmap.json    ロードマップの章（並び順・タイトル・説明）
 content/decks/<slug>/   1デッキ = 1フォルダ（<slug> が URL になる：/decks/<slug>/）
   meta.json             一覧ページに出す情報
   deck.json             スライドの並び順とフォント（Slides アーティファクトの index）
@@ -40,14 +41,19 @@ scripts/build.mjs       content/ から dist/ を生成
    {
      "title": "まっすぐ見る（search）",
      "description": "一覧ページに表示する説明文",
+     "goal": "ロードマップに出す「できるようになること」",
      "category": "ブロック解説",
      "tags": ["search", "変数"],
      "date": "2026-10-23",
+     "chapter": "see",
      "order": 10
    }
    ```
 
-   一覧は `order` の小さい順に並び、`order` が同じなら `date` の新しい順です。
+   - `chapter` は `content/roadmap.json` の章の `id`。章のないデッキは「そのほか」にまとめられます。
+   - 学ぶ順（STEP 番号）は「章の並び → 章の中では `order` の小さい順」で自動的に決まります。
+     あとから間に入れたいときは、`order` を 10, 20, 30… のように空けておくと便利です。
+   - 一覧ページ・ロードマップ・ビューアの「前／次」リンクは、すべてこの順番から作られます。
 
 5. `npm run build` で確認し、コミットして push する。
 

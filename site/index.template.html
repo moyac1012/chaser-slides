@@ -13,7 +13,8 @@
 <body>
 <header class="nav">
   <a class="nav__brand" href="./">CHASER</a>
-  <span class="nav__pill nav__pill--active">教材スライド</span>
+  <a class="nav__pill nav__pill--active" href="./">教材スライド</a>
+  <a class="nav__pill" href="roadmap/">ロードマップ</a>
   <span class="nav__spacer"></span>
   <span class="nav__count">{{DECK_COUNT}} デッキ</span>
 </header>
@@ -22,7 +23,10 @@
   <section class="hero">
     <p class="hero__eyebrow">CHASER WEB · SLIDE LIBRARY</p>
     <h1 class="hero__title">CHaser 教材スライド</h1>
-    <p class="hero__lead">ブロックの使い方やルールを、1テーマずつスライドで解説します。カードを選ぶとスライドが開きます。</p>
+    <p class="hero__lead">ブロックの使い方やルールを、1テーマずつスライドで解説します。STEP の番号順に進めるのがおすすめです。</p>
+    <div class="hero__actions">
+      <a class="button button--light" href="roadmap/">学ぶ順番をロードマップで見る →</a>
+    </div>
     <label class="search">
       <span class="visually-hidden">スライドを検索</span>
       <input type="search" id="deck-search" placeholder="キーワードで絞り込む（例：search、変数）" autocomplete="off">

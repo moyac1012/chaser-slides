@@ -203,3 +203,158 @@ a { color: inherit; }
   color: var(--muted);
   font-size: 13px;
 }
+
+/* ---------- ナビのリンク ---------- */
+
+a.nav__pill { text-decoration: none; color: var(--ink); }
+a.nav__pill:hover { background: #f3eadb; }
+a.nav__pill--active, a.nav__pill--active:hover { background: var(--choco); color: #fff7ea; }
+
+/* ---------- ヒーローのボタン ---------- */
+
+.hero__actions { margin: 0 0 20px; }
+.button--light { background: #fff7ea; color: var(--choco); }
+.button--light:hover { background: #ffe3d2; }
+
+/* ---------- カードの STEP 番号 ---------- */
+
+.card__step {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  padding: 4px 12px;
+  font-family: Oxanium, "Space Grotesk", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #fff7ea;
+  background: rgba(74, 44, 31, 0.92);
+  border-radius: 999px;
+}
+
+/* ---------- ロードマップ ---------- */
+
+.roadmap { margin-top: 32px; display: flex; flex-direction: column; gap: 40px; }
+
+.chapter__head { margin-bottom: 16px; }
+.chapter__num {
+  margin: 0;
+  font-family: Oxanium, "Space Grotesk", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--orange-ink);
+}
+.chapter__title { margin: 6px 0 4px; font-size: clamp(22px, 3vw, 30px); }
+.chapter__desc { margin: 0; color: var(--body); line-height: 1.7; }
+
+.chapter__nodes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+}
+
+/* 縦の線：番号の丸をつなぐ */
+.chapter__nodes::before {
+  content: "";
+  position: absolute;
+  left: 23px;
+  top: 24px;
+  bottom: 24px;
+  width: 3px;
+  background: repeating-linear-gradient(180deg, #d9c3a3 0 8px, transparent 8px 14px);
+}
+
+.node { display: flex; gap: 16px; align-items: stretch; position: relative; }
+
+.node__marker {
+  flex: none;
+  width: 48px;
+  display: flex;
+  justify-content: center;
+  padding-top: 18px;
+}
+.node__marker span {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--choco);
+  color: #fff7ea;
+  font-family: Oxanium, "Space Grotesk", sans-serif;
+  font-weight: 700;
+  box-shadow: 0 0 0 6px var(--bg);
+  position: relative;
+}
+
+.node__card {
+  flex: 1;
+  display: flex;
+  gap: 20px;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.node__card:hover { transform: translateY(-2px); box-shadow: 0 22px 48px rgba(58, 34, 22, 0.14); }
+.node__card:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+.node__thumb {
+  flex: none;
+  position: relative;
+  width: 256px;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #e3cdae;
+}
+.node__thumb iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
+}
+
+.node__body { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.node__step {
+  margin: 0;
+  font-family: Oxanium, "Space Grotesk", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--teal-ink);
+}
+.node__title { margin: 0; font-size: 20px; line-height: 1.4; }
+.node__desc { margin: 0; font-size: 14px; line-height: 1.7; color: var(--body); }
+.node__goal {
+  margin: 4px 0 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink);
+  background: #e3f6f2;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+.node__goal span {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--teal-ink);
+}
+
+@media (max-width: 720px) {
+  .node__card { flex-direction: column; }
+  .node__thumb { width: 100%; }
+}
