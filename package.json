@@ -1,0 +1,15 @@
+{
+  "name": "chaser-slides",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CHaser 教材スライドの一覧サイト",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "npm run build && npx --yes serve dist",
+    "deploy": "npm run build && npx --yes wrangler@3 pages deploy dist --project-name chaser-slides"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

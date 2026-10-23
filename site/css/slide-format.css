@@ -1,0 +1,62 @@
+/*
+ * Slides アーティファクトのスライド形式（1920×1080 の <section>、インラインスタイル）を
+ * ブラウザで同じように表示するための既定値。
+ */
+
+.slide > section {
+  position: absolute;
+  inset: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.slide > section * {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/*
+ * Slides 形式では、通常の流れの要素は position:absolute の背景より手前に描かれる。
+ * ブラウザでは絶対配置の要素が常に手前に来るため、流れの要素にも position を与えて
+ * DOM 順（背景 → 本文）どおりに重ねる。
+ */
+.slide > section > *:not([style*="position:absolute"]) {
+  position: relative;
+}
+
+/* display 指定のない div は縦並びの flex として扱う（Slides 形式の既定） */
+.slide > section div:not([style*="display"]) {
+  display: flex;
+  flex-direction: column;
+}
+
+.slide > section h1 { font-size: 96px; font-weight: 600; line-height: 1.1; }
+.slide > section h2 { font-size: 64px; font-weight: 600; line-height: 1.15; }
+.slide > section h3 { font-size: 44px; font-weight: 600; line-height: 1.2; }
+.slide > section p,
+.slide > section li { font-size: 32px; line-height: 1.4; }
+.slide > section ul,
+.slide > section ol { padding-left: 1.2em; }
+.slide > section img { display: block; flex: none; }
+.slide > section aside { display: none; }
+
+/* 流し込みの矢印（<x-connector style="width:…">） */
+.slide > section x-connector {
+  display: block;
+  flex: none;
+  position: relative;
+  height: 0;
+  border-style: solid none none none;
+  border-color: currentColor;
+}
+.slide > section x-connector::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  top: -12px;
+  border-left: 16px solid currentColor;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}

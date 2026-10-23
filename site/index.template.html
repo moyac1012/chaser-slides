@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CHaser 教材スライド</title>
+<meta name="description" content="CHaser（U-16プログラミングコンテスト）のブロックやルールを解説する教材スライドの一覧です。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400..700&family=Oxanium:wght@400..800&family=Noto+Sans+JP:wght@400..800&display=swap">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<header class="nav">
+  <a class="nav__brand" href="./">CHASER</a>
+  <span class="nav__pill nav__pill--active">教材スライド</span>
+  <span class="nav__spacer"></span>
+  <span class="nav__count">{{DECK_COUNT}} デッキ</span>
+</header>
+
+<main class="page">
+  <section class="hero">
+    <p class="hero__eyebrow">CHASER WEB · SLIDE LIBRARY</p>
+    <h1 class="hero__title">CHaser 教材スライド</h1>
+    <p class="hero__lead">ブロックの使い方やルールを、1テーマずつスライドで解説します。カードを選ぶとスライドが開きます。</p>
+    <label class="search">
+      <span class="visually-hidden">スライドを検索</span>
+      <input type="search" id="deck-search" placeholder="キーワードで絞り込む（例：search、変数）" autocomplete="off">
+    </label>
+  </section>
+
+  <section class="grid" id="deck-grid" aria-label="スライド一覧">
+{{CARDS}}
+  </section>
+  <p class="empty" id="deck-empty" hidden>該当するスライドはありません。</p>
+</main>
+
+<footer class="footer">
+  <p>スライドは ← → キーでページ送り、O で一覧、N でノート、F で全画面。</p>
+</footer>
+
+<script src="js/index.js"></script>
+</body>
+</html>

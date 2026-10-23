@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{TITLE}} | CHaser 教材スライド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+{{FONT_LINKS}}
+<link rel="stylesheet" href="../../css/slide-format.css">
+<link rel="stylesheet" href="../../css/viewer.css">
+</head>
+<body class="viewer">
+<main class="stage" id="stage" aria-label="{{TITLE}}">
+  <div class="canvas" id="canvas">
+{{SLIDES}}
+  </div>
+</main>
+
+<div class="overview" id="overview" hidden aria-label="スライド一覧"></div>
+
+<aside class="notes" id="notes" hidden aria-live="polite">
+  <p class="notes__label">ノート</p>
+  <p class="notes__text" id="notes-text"></p>
+</aside>
+
+<nav class="toolbar" id="toolbar" aria-label="スライド操作">
+  <a class="toolbar__btn toolbar__home" href="../../">← 一覧</a>
+  <span class="toolbar__title">{{TITLE}}</span>
+  <span class="toolbar__spacer"></span>
+  <button class="toolbar__btn" type="button" data-action="prev" aria-label="前のスライド">‹</button>
+  <span class="toolbar__counter" id="counter">1 / 1</span>
+  <button class="toolbar__btn" type="button" data-action="next" aria-label="次のスライド">›</button>
+  <button class="toolbar__btn" type="button" data-action="overview" title="一覧表示（O）">一覧</button>
+  <button class="toolbar__btn" type="button" data-action="notes" title="ノート（N）">ノート</button>
+  <button class="toolbar__btn" type="button" data-action="fullscreen" title="全画面（F）">全画面</button>
+</nav>
+
+<script src="../../js/viewer.js"></script>
+</body>
+</html>
